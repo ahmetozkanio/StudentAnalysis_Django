@@ -1,0 +1,53 @@
+{% load static %}
+
+
+    <header class="%100 % bg-light shadow d-flex flex-wrap align-items-center justify-content-center py-3 mb-4 border-bottom">
+      <a href="{% url 'index'%}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img width="70" height="70"src={%  static 'images/iste_arma.png' %} alt="">
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{% url 'index'%}" class="nav-link px-2 link-secondary">Ana Sayfa</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Dersler</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Hakkimizda</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Iletisim</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+
+ <!-- Kullanicinin Giris Yapilip Yapilmadigina gore navbarda Giris veya Cikis Butonu Gosteriyoruz -->
+  {% if request.user.is_authenticated %}<!-- kullanici giris yapmissa bu bloga girer -->
+   
+   
+        <li class="nav-item active">
+
+                <a class="btn btn-success" href="">{{request.user.username}}</a>
+            </li>
+             <li class="nav-item active">
+          <a class="nav-link" href="">Kontrol Paneli</a>
+         </li>
+
+          </ul>
+  <a href="{% url 'user:logout'%}">
+              <button type="button" class="btn btn-outline-danger me-2">Logout</button>
+
+      </a>
+   
+  
+  {% else %}
+<div class=" text-end">
+      <a href="{% url 'user:login'%}">
+              <button type="button" class="btn btn-outline-danger me-2">Login</button>
+
+      </a>
+   
+        <a href="{% url 'user:register'%}">
+             <button type="button" class="btn btn-danger">Sign-up</button>
+
+      </a>
+       
+      </div>
+
+  {% endif %}
+      
+    </header>
+
+
