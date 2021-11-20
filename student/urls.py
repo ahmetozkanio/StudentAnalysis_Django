@@ -22,5 +22,6 @@ from dashboard import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",views.index,name= "index"),
-    path("user/",include('user.urls'))
+    path("user/",include('user.urls')),
+    path("lessons/",include('lessons.urls'))
 ]
