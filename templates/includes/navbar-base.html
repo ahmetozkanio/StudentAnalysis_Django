@@ -6,12 +6,12 @@
         <img width="50" height="50"src={%  static 'images/iste_arma.png' %} alt="">
       </a>
 
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="{% url 'index'%}" class="nav-link px-2 link-secondary">Ana Sayfa</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Dersler</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Hakkimizda</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Iletisim</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+      <ul class="nav nav-tabs col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li class="nav-item  "><a href="{% url 'index' %}" class="nav-link   {% if '/' == request.path %}  active link-secondary   {% endif %}">Ana Sayfa</a></li>
+        <li><a href="{% url 'lessons:lessons' %}" class="nav-link px-2 {% if 'lessons' in request.path %}  active link-secondary  {% endif %} ">Dersler</a></li>
+        <li><a href="#" class="nav-link px-2 {% if '/' == request.path %} link-secondary   {% endif %}">Hakkimizda</a></li>
+        <li><a href="#" class="nav-link px-2 {% if '/' == request.path %} link-secondary   {% endif %}">Iletisim</a></li>
+        <li><a href="#" class="nav-link px-2 {% if '/' == request.path %} link-secondary   {% endif %}">About</a></li>
 
  <!-- Kullanicinin Giris Yapilip Yapilmadigina gore navbarda Giris veya Cikis Butonu Gosteriyoruz -->
   {% if request.user.is_authenticated %}<!-- kullanici giris yapmissa bu bloga girer -->
